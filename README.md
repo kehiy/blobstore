@@ -28,13 +28,25 @@ type Store interface {
 
 ### Storages
 
-Currently [Minio](./minio/) and [Disk](./disk/) storage interfaces are available.
+Current availabe storage infterfaces are:
 
-Next versions will contain the IPFS and torrent.
+* [Disk](./disk/)
+* [S3(minio)](./minio/)
+* [IPFS](./ipfs/)
 
 ## Policy
 
 The khatru supports a a policy interface which helps to reject request to specific blossom routes. The [policy](./policy/) directory contains a simple module that helps you to define basic policy for your blobstore dynamically.
+
+## Roadmap
+
+- [ ] Torrent interface.
+- [ ] Khatru compatible blob index interface for different databases.
+- [ ] More examples.
+
+## Contribution
+
+Any kind of contribution is very welcomed.
 
 ## License
 
