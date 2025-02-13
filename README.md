@@ -1,13 +1,13 @@
 # Blob store
 
-This package provides a list of blob storage interfaces which is compatible with [khatru](https://github.com/fiatjaf/khatru) media server.
+This package provides a list of blob storage interfaces compatible with the [khatru](https://github.com/fiatjaf/khatru) media server.
 
 ## Interface
 
-Here is the khatru compatible interface implemented by blobstore:
+Here is the khatru compatible interface implemented by blob store:
 
 ```go
-// Store is an interface which allows blob create, read, delete.
+// Store is an interface which allows blob to create, read, and delete.
 type Store interface {
 	// Init creates storage requirements and starts it.
 	Init(ctx context.Context) error
@@ -18,31 +18,31 @@ type Store interface {
 	// Store saves the provided blob.
 	Store(ctx context.Context, sha256 string, body []byte) error
 
-	// Load reads the blob with ID of sha256 provided from storage.
+	// Load reads the blob with the ID of sha256 provided from storage.
 	Load(ctx context.Context, sha256 string) (io.ReadSeeker, error)
 	
-	// Delete removes the blob with ID of sha256 provided from storage.
+	// Delete removes the blob with the ID of sha256 provided from storage.
 	Delete(ctx context.Context, sha256 string) error
 }
 ```
 
 ### Storages
 
-Current availabe storage infterfaces are:
+Current available storage interfaces are:
 
 * [Disk](./disk/)
 * [S3(minio)](./minio/)
-* [IPFS](./ipfs/)
 
 ## Policy
 
-The khatru supports a a policy interface which helps to reject request to specific blossom routes. The [policy](./policy/) directory contains a simple module that helps you to define basic policy for your blobstore dynamically.
+The khatru supports a policy interface which helps to reject requests to specific blossom routes. The [policy](./policy/) directory contains a simple module that helps you to define basic policy for your blob store dynamically.
 
 ## Roadmap
 
-- [ ] Torrent interface.
+- [ ] IPFS interface.
 - [ ] Khatru compatible blob index interface for different databases.
 - [ ] More examples.
+- [ ] Torrent interface.
 
 ## Contribution
 
