@@ -47,12 +47,6 @@ func (m *Minio) Init(ctx context.Context) error {
 
 	m.MinioClient = minioClient
 
-	if err := m.MinioClient.MakeBucket(ctx, m.BucketName, minio.MakeBucketOptions{
-		Region: m.Location,
-	}); err != nil {
-		return err
-	}
-
 	return nil
 }
 
