@@ -32,6 +32,7 @@ Current available storage interfaces are:
 
 * [Disk](./disk/)
 * [S3(minio)](./minio/)
+* [Memory](./memory//)
 
 ## Policy
 

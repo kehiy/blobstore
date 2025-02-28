@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/fiatjaf/eventstore/badger"
+	"github.com/fiatjaf/khatru"
 	"github.com/fiatjaf/khatru/blossom"
 	"github.com/kehiy/blobstore/disk"
-	"github.com/fiatjaf/khatru"
 )
 
 func main() {
@@ -18,9 +18,8 @@ func main() {
 		panic(err)
 	}
 
-	
 	bl := blossom.New(relay, "http://localhost:3334")
-	
+
 	d := disk.New("/blossom")
 	bl.LoadBlob = append(bl.LoadBlob, d.Load)
 	bl.DeleteBlob = append(bl.DeleteBlob, d.Delete)
